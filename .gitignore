@@ -3,3 +3,4 @@ dataset/
 log/
 *.pyc
 .DS_Store
+weights/
