@@ -674,6 +674,7 @@ def evaluation(
     ray_type="ndc",
     compute_extra_metrics=True,
     device="cuda",
+    split="train",
 ):
     (
         PSNRs,
@@ -707,7 +708,7 @@ def evaluation(
     )  # (H, W, 3)
     all_rays = []
     for i in range(poses_mtx.shape[0]):
-        c2w = poses_mtx[i]
+        c2w = poses_mtx[i if split == "train" else 0]
         rays_o, rays_d = get_rays(directions, c2w)  # both (h*w, 3)
         if ray_type == "ndc":
             rays_o, rays_d = ndc_rays_blender(
