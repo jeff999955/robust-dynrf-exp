@@ -97,6 +97,23 @@ Obtain motion mask.
 python scripts/generate_mask.py --dataset_path ${SCENE_DIR}
 ```
 
+# Reproduce
+Set the `expname` in `conifig/${CONFIG_FILE}` with `${EXP_NAME}`.
+
+## Training
+```
+python train.py --config configs/Nvidia_no_poses.txt
+```
+
+## Evaluation
+### Novel View Synthesis
+```
+python train.py --config configs/Nvidia_no_poses.txt --ckpt log/${EXP_NAME}/${EXP_NAME}.th --render_only 1 --render_test 1
+python ~/Downloads/evaluate.py -i ./log/${EXP_NAME}/${EXP_NAME}/imgs_test_all -g ./data/gt_folder/Nvidia/gt/Balloon1 --imgStr %03d.png --gtStr v000_t%03d.png
+```
+
+
+
 ## Training
 Set the `expname` in `conifig/${CONFIG_FILE}` with `${EXP_NAME}`.
 Adjust the `N_voxel_t` in `conifig/${CONFIG_FILE}` to match the number of images in `${SCENE_DIR}/images`.
