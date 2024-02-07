@@ -42,6 +42,8 @@ unzip data.zip
 rm data.zip
 ```
 
+Make sure to download the gt from [Evaluation](#evaluation) and put it in the following data structure.
+
 ### [DAVIS](https://davischallenge.org/davis2016/code.html) or custom sequences
 Put the images in the following data structure.
 ```
