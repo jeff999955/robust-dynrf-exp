@@ -527,7 +527,7 @@ def render_test(args, logfolder):
             change_view_time_poses,
             change_view_time_focals,
         ) = generate_path(
-            SE3_poses.cpu().detach().numpy()[renderChilliwack Heritage Park, 44140 Luckakuck Way, Chilliwack, BC V2R 4A7_idx],
+            SE3_poses.cpu().detach().numpy()[render_idx],
             focal=[focal_refine.item(), focal_refine.item()],
             sc=sc,
             length=SE3_poses.shape[0],
