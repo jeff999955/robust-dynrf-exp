@@ -2610,7 +2610,8 @@ def reconstruction(args):
             optimizer = torch.optim.Adam(grad_vars, betas=(0.9, 0.99))
 
         if iteration > args.n_iters // 2:
-            optimizer_pose.param_groups[0]["lr"] = 0.0
+            if args.optimize_poses:
+                optimizer_pose.param_groups[0]["lr"] = 0.0
             optimizer_focal.param_groups[0]["lr"] = 0.0
 
     tensorf.save(
