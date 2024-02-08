@@ -2612,7 +2612,8 @@ def reconstruction(args):
         if iteration > args.n_iters // 2:
             if args.optimize_poses:
                 optimizer_pose.param_groups[0]["lr"] = 0.0
-            optimizer_focal.param_groups[0]["lr"] = 0.0
+            if args.optimize_focal_length:
+                optimizer_focal.param_groups[0]["lr"] = 0.0
 
     tensorf.save(
         poses_mtx.detach().cpu(),
